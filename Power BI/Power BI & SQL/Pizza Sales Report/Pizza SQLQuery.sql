@@ -47,19 +47,19 @@ select * from pizza_sales;
 --------------------------
 
 # Top 5 best seller by revenue
-SELECT pizza_name, CAST(SUM (total_price) as decimal(10,2)) as revenue
+SELECT TOP 5 pizza_name, CAST(SUM (total_price) as decimal(10,2)) as revenue
 from pizza_sales
 group by pizza_name
 order by revenue desc; 
 
 # Top 5 best seller by total quantity
-Select pizza_name, SUM(quantity) as total_quantity
+Select TOP 5 pizza_name, SUM(quantity) as total_quantity
 from pizza_sales
 group by pizza_name
 order by total_quantity desc; 
 
 # Top 5 best seller by total orders
-select pizza_name, COUNT(distinct order_id) as total_order
+select TOP 5 pizza_name, COUNT(distinct order_id) as total_order
 from pizza_sales
 group by pizza_name
 order by total_order desc; 
